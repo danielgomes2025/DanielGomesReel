@@ -88,12 +88,12 @@ p{margin:0}
 .hero{border-bottom:var(--rule)}
 .wm{margin:0;padding:clamp(14px,1.6vw,24px) var(--pad) 0;font-size:12.4vw;white-space:nowrap;line-height:.8}
 .wm-in{display:inline-block}
-.wm .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.02em}
-.wm .w1{margin-right:.16em}
+.wm{font-stretch:100%;letter-spacing:-.03em}
+.wm .w{display:inline-block;overflow:hidden;vertical-align:top;padding:.13em 0 .02em}
+.wm .wd{color:var(--red)}
 .wm .l{display:inline-block}
 .js .wm .l{transform:translateY(108%);animation:rise 1s var(--ease) forwards;animation-delay:calc(var(--i) * 45ms + 120ms)}
 @keyframes rise{to{transform:none}}
-@media (max-width:560px){.wm .w{display:block}.wm .w1{margin-right:0}}
 
 .hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2.4fr) minmax(0,1fr);column-gap:clamp(16px,2.4vw,36px);padding:clamp(20px,2.4vw,34px) var(--pad) clamp(26px,3vw,44px)}
 .hero-l,.hero-r{display:flex;flex-direction:column}
@@ -337,7 +337,7 @@ p{margin:0}
 
     <!-- Hero -->
     <section class="hero" aria-label="Apresentação">
-      <h1 class="wm disp" id="wm" aria-label="Daniel Gomes"><span class="wm-in"><span class="w w1">Daniel</span><span class="w w2">Gomes</span></span></h1>
+      <h1 class="wm disp" id="wm" aria-label="DG-PÓS, Daniel Gomes Pós-Produção"><span class="wm-in"><span class="w w1">DG</span><span class="w wd">-</span><span class="w w2">PÓS</span></span></h1>
 
       <div class="hero-grid">
         <div class="hero-l rv" style="--d:.5s">
@@ -689,4 +689,4 @@ p{margin:0}
 })();
 </script>
 </body>
-</html>'
+</html>
