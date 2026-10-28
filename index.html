@@ -68,6 +68,11 @@ p{margin:0}
 .nav a{display:flex;align-items:center;height:100%;padding:0 clamp(16px,2vw,30px);border-left:var(--rule);font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;transition:background-color .25s,color .25s}
 .nav a:hover{background:var(--ink);color:var(--paper)}
 .hdr-dot{display:grid;place-items:center;width:64px;border-left:var(--rule)}
+.lang{display:flex;align-items:center;gap:3px;padding:0 16px;border-left:var(--rule);font-size:11px;font-weight:700;letter-spacing:.14em}
+.lang span{color:#a29d93}
+.lang button{font:inherit;letter-spacing:inherit;background:none;border:0;border-bottom:2px solid transparent;padding:5px 3px 3px;color:#8d887f;cursor:pointer;transition:color .2s,border-color .2s}
+.lang button:hover{color:var(--ink)}
+.lang button[aria-pressed="true"]{color:var(--ink);border-bottom-color:var(--red)}
 .hdr-dot span{width:11px;height:11px;border-radius:50%;background:var(--red);animation:blink 2.4s ease-in-out infinite}
 @keyframes blink{50%{opacity:.25}}
 .menu-btn{display:none;align-items:center;justify-content:center;width:64px;border:0;border-left:var(--rule);background:transparent;color:var(--ink);cursor:pointer;padding:0}
@@ -311,27 +316,28 @@ p{margin:0}
 
   <!-- Cabeçalho -->
   <header class="hdr">
-    <a href="#topo" class="brand" aria-label="Daniel Gomes, início">Daniel Gomes<b>.</b></a>
-    <div class="hdr-desc" aria-hidden="true"><span>Montagem</span><span>Color grading</span><span>Motion &amp; VFX</span></div>
+    <a href="#topo" class="brand" aria-label="Daniel Gomes, início" data-en-label="Daniel Gomes, home">Daniel Gomes<b>.</b></a>
+    <div class="hdr-desc" aria-hidden="true"><span data-en="Editing">Montagem</span><span>Color grading</span><span>Motion &amp; VFX</span></div>
     <div class="hdr-sp"></div>
     <nav class="dn" aria-label="Principal">
       <ul class="nav">
-        <li><a href="#trabalhos">Trabalhos</a></li>
-        <li><a href="#videos">Vídeos</a></li>
+        <li><a href="#trabalhos" data-en="Work">Trabalhos</a></li>
+        <li><a href="#videos" data-en="Films">Vídeos</a></li>
         <li><a href="#plugin">Plugin</a></li>
-        <li><a href="#contato">Contato</a></li>
+        <li><a href="#contato" data-en="Contact">Contato</a></li>
       </ul>
     </nav>
+    <div class="lang" role="group" aria-label="Idioma / Language"><button type="button" data-lang="pt" aria-pressed="true" lang="pt-BR">PT</button><span aria-hidden="true">/</span><button type="button" data-lang="en" aria-pressed="false" lang="en">EN</button></div>
     <div class="hdr-dot" aria-hidden="true"><span></span></div>
     <button class="menu-btn" id="menu-btn" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="mnav">
       <svg class="ic-menu" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
       <svg class="ic-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
     </button>
     <nav class="mnav" id="mnav" aria-label="Menu móvel">
-      <a href="#trabalhos">Trabalhos</a>
-      <a href="#videos">Vídeos</a>
+      <a href="#trabalhos" data-en="Work">Trabalhos</a>
+      <a href="#videos" data-en="Films">Vídeos</a>
       <a href="#plugin">Plugin</a>
-      <a href="#contato">Contato</a>
+      <a href="#contato" data-en="Contact">Contato</a>
     </nav>
   </header>
 
@@ -339,18 +345,18 @@ p{margin:0}
 
     <!-- Hero -->
     <section class="hero" aria-label="Apresentação">
-      <h1 class="wm disp" id="wm" aria-label="DG-PÓS, Daniel Gomes Pós-Produção"><span class="wm-in"><span class="w w1">DG</span><span class="w wd">-</span><span class="w w2">PÓS</span></span></h1>
+      <h1 class="wm disp" id="wm" aria-label="DG-PÓS, Daniel Gomes Pós-Produção" data-en-label="DG-PÓS, Daniel Gomes Post-Production"><span class="wm-in"><span class="w w1">DG</span><span class="w wd">-</span><span class="w w2">PÓS</span></span></h1>
 
       <div class="hero-grid">
         <div class="hero-l rv" style="--d:.5s">
-          <p class="tag disp">Editor &amp;<br>finalizador.<br>20 anos de pós.</p>
+          <p class="tag disp" data-en="Editor &amp;amp;<br>finisher.<br>20 years in post.">Editor &amp;<br>finalizador.<br>20 anos de pós.</p>
           <span class="dash"></span>
-          <p class="lab">Montagem rítmica<br>Color grading<br>Finalização</p>
+          <p class="lab" data-en="Rhythmic editing<br>Color grading<br>Finishing">Montagem rítmica<br>Color grading<br>Finalização</p>
           <svg class="stamp red" viewBox="0 0 100 100" aria-hidden="true">
             <circle class="disc" cx="50" cy="50" r="49"/>
             <g class="ring">
               <path id="c-hero" d="M50,50 m-37,0 a37,37 0 1,1 74,0 a37,37 0 1,1 -74,0" fill="none"/>
-              <text><textPath href="#c-hero" textLength="230" lengthAdjust="spacing">PÓS-PRODUÇÃO · EDITOR &amp; FINALIZADOR · </textPath></text>
+              <text><textPath href="#c-hero" textLength="230" lengthAdjust="spacing" data-en="POST-PRODUCTION · EDITOR &amp;amp; FINISHER · ">PÓS-PRODUÇÃO · EDITOR &amp; FINALIZADOR · </textPath></text>
             </g>
             <path class="ico" d="M43 39 L62 50 L43 61 Z"/>
           </svg>
@@ -358,13 +364,13 @@ p{margin:0}
 
         <div class="hero-c rv" style="--d:.35s">
           <div class="vf big" data-vimeo="1159211576" data-hash="" data-title="Showreel 2026"></div>
-          <div class="reel-cap"><span class="lab">Showreel 2026</span><span class="lab">Assista com som</span></div>
+          <div class="reel-cap"><span class="lab">Showreel 2026</span><span class="lab" data-en="Watch with sound">Assista com som</span></div>
         </div>
 
         <div class="hero-r rv" style="--d:.65s">
-          <div class="note"><span class="tape" aria-hidden="true"></span><span class="hand">O corte<br>mora aqui</span></div>
+          <div class="note"><span class="tape" aria-hidden="true"></span><span class="hand" data-en="The cut<br>lives here">O corte<br>mora aqui</span></div>
           <div class="bottom">
-            <p class="lab">Montagem · Cor · Motion</p>
+            <p class="lab" data-en="Edit · Color · Motion">Montagem · Cor · Motion</p>
           </div>
         </div>
       </div>
@@ -372,73 +378,73 @@ p{margin:0}
 
     <!-- Manchete -->
     <section class="stmt" aria-label="Manifesto">
-      <p class="b b1 disp rv">Ritmo</p>
-      <p class="s s1 rv" style="--d:.1s"><span class="hand wr">que fala</span></p>
-      <p class="b b2 disp rv">Antes das</p>
-      <p class="s s2 rv" style="--d:.1s"><span class="hand wr">palavras.</span></p>
-      <div class="side rv" style="--d:.2s"><span class="lab">Corta.</span><span class="lab">Colore.</span><span class="lab">Anima.</span><span class="lab">Finaliza.</span><span class="dash"></span></div>
+      <p class="b b1 disp rv" data-en="Rhythm">Ritmo</p>
+      <p class="s s1 rv" style="--d:.1s"><span class="hand wr" data-en="that speaks">que fala</span></p>
+      <p class="b b2 disp rv" data-en="Before">Antes das</p>
+      <p class="s s2 rv" style="--d:.1s"><span class="hand wr" data-en="words.">palavras.</span></p>
+      <div class="side rv" style="--d:.2s"><span class="lab" data-en="Cut.">Corta.</span><span class="lab" data-en="Color.">Colore.</span><span class="lab" data-en="Animate.">Anima.</span><span class="lab" data-en="Finish.">Finaliza.</span><span class="dash"></span></div>
     </section>
 
     <!-- Sobre / Serviços -->
     <section class="about" id="sobre">
       <div class="txt rv">
-        <div class="sh"><span class="n">01</span><h2>Sobre</h2></div>
-        <p>Sou Daniel Gomes, editor e finalizador com mais de 20 anos de pós-produção audiovisual. Monto, coloro e finalizo filmes de marca, campanhas e conteúdo para agências e produtoras, do material bruto à entrega final em todos os formatos.</p>
+        <div class="sh"><span class="n">01</span><h2 data-en="About">Sobre</h2></div>
+        <p data-en="I'm Daniel Gomes, an editor and finisher with over 20 years in audiovisual post-production. I edit, color and finish brand films, campaigns and content for agencies and production companies, from raw footage to final delivery in every format.">Sou Daniel Gomes, editor e finalizador com mais de 20 anos de pós-produção audiovisual. Monto, coloro e finalizo filmes de marca, campanhas e conteúdo para agências e produtoras, do material bruto à entrega final em todos os formatos.</p>
         <span class="dash"></span>
-        <p class="lab">Corte, cor e acabamento.</p>
+        <p class="lab" data-en="Cut, color and finish.">Corte, cor e acabamento.</p>
       </div>
       <div class="photo rv" style="--d:.1s">
         <figure>
           <span class="tape" aria-hidden="true"></span>
-          <div class="ph"><img id="about-img" alt="Frame da Campanha Azeite Gallo" decoding="async"></div>
-          <figcaption>Frame · Campanha Azeite Gallo</figcaption>
+          <div class="ph"><img id="about-img" alt="Frame da Campanha Azeite Gallo" data-en-alt="Still from the Azeite Gallo campaign" decoding="async"></div>
+          <figcaption data-en="Still · Azeite Gallo campaign">Frame · Campanha Azeite Gallo</figcaption>
         </figure>
       </div>
       <div class="svcs rv" style="--d:.2s">
-        <div class="sh"><span class="n">02</span><h2>Serviços</h2></div>
+        <div class="sh"><span class="n">02</span><h2 data-en="Services">Serviços</h2></div>
         <ul class="svc">
-          <li>Montagem narrativa</li>
+          <li data-en="Narrative editing">Montagem narrativa</li>
           <li>Color grading</li>
           <li>Motion graphics</li>
-          <li>VFX e composição</li>
+          <li data-en="VFX &amp;amp; compositing">VFX e composição</li>
           <li>Sound design</li>
-          <li>Finalização multiformato</li>
+          <li data-en="Multi-format finishing">Finalização multiformato</li>
         </ul>
         <span class="dash"></span>
-        <p class="lab">Do bruto à entrega final.</p>
+        <p class="lab" data-en="From raw footage to final delivery.">Do bruto à entrega final.</p>
       </div>
     </section>
 
     <!-- Trabalhos -->
     <section class="works" id="trabalhos">
       <div class="works-top rv">
-        <div class="sh"><span class="n">03</span><h2>Trabalhos selecionados</h2></div>
-        <a class="more" href="#videos">Ver vídeos completos <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <div class="sh"><span class="n">03</span><h2 data-en="Selected work">Trabalhos selecionados</h2></div>
+        <a class="more" href="#videos"><span data-en="See full films">Ver vídeos completos</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
       <div class="works-grid">
         <article class="work rv">
-          <div class="vf" data-vimeo="1158527582" data-hash="" data-title="Visualização & Render"></div>
-          <div class="meta"><span class="lab">001</span><span class="lab">Finalização</span></div>
-          <h3 class="disp">Visualização &amp; Render</h3>
-          <p>Finalização avançada para arquitetura e visualização de produtos.</p>
+          <div class="vf" data-vimeo="1158527582" data-hash="" data-title="Visualização & Render" data-title-en="Visualization & Render"></div>
+          <div class="meta"><span class="lab">001</span><span class="lab" data-en="Finishing">Finalização</span></div>
+          <h3 class="disp" data-en="Visualization &amp;amp; Render">Visualização &amp; Render</h3>
+          <p data-en="Advanced finishing for architectural and product visualization.">Finalização avançada para arquitetura e visualização de produtos.</p>
         </article>
         <article class="work rv" style="--d:.08s">
-          <div class="vf" data-vimeo="1158513832" data-hash="" data-title="Color Grading Profissional"></div>
-          <div class="meta"><span class="lab">002</span><span class="lab">Cor</span></div>
-          <h3 class="disp">Color Grading Profissional</h3>
-          <p>Tratamento de cor no DaVinci Resolve Studio. Precisão e estética cinematográfica.</p>
+          <div class="vf" data-vimeo="1158513832" data-hash="" data-title="Color Grading Profissional" data-title-en="Professional Color Grading"></div>
+          <div class="meta"><span class="lab">002</span><span class="lab" data-en="Color">Cor</span></div>
+          <h3 class="disp" data-en="Professional Color Grading">Color Grading Profissional</h3>
+          <p data-en="Color grading in DaVinci Resolve Studio. Precise, cinematic look.">Tratamento de cor no DaVinci Resolve Studio. Precisão e estética cinematográfica.</p>
         </article>
         <article class="work rv" style="--d:.16s">
-          <div class="vf" data-vimeo="1158528559" data-hash="" data-title="Montagem Narrativa"></div>
-          <div class="meta"><span class="lab">003</span><span class="lab">Montagem</span></div>
-          <h3 class="disp">Montagem Narrativa</h3>
-          <p>Edição focada em storytelling e ritmo para conteúdos de marca.</p>
+          <div class="vf" data-vimeo="1158528559" data-hash="" data-title="Montagem Narrativa" data-title-en="Narrative Editing"></div>
+          <div class="meta"><span class="lab">003</span><span class="lab" data-en="Editing">Montagem</span></div>
+          <h3 class="disp" data-en="Narrative Editing">Montagem Narrativa</h3>
+          <p data-en="Storytelling and rhythm-driven editing for branded content.">Edição focada em storytelling e ritmo para conteúdos de marca.</p>
         </article>
         <article class="work rv" style="--d:.24s">
           <div class="vf" data-vimeo="1158514099" data-hash="" data-title="Motion & VFX"></div>
           <div class="meta"><span class="lab">004</span><span class="lab">Motion</span></div>
           <h3 class="disp">Motion &amp; VFX</h3>
-          <p>Composição técnica e efeitos visuais com After Effects e Mocha Pro.</p>
+          <p data-en="Technical compositing and visual effects with After Effects and Mocha Pro.">Composição técnica e efeitos visuais com After Effects e Mocha Pro.</p>
         </article>
       </div>
     </section>
@@ -446,8 +452,8 @@ p{margin:0}
     <!-- Vídeos completos (edite o array fullVideos no fim do arquivo) -->
     <section class="videos" id="videos">
       <div class="videos-head rv">
-        <div class="sh"><span class="n">04</span><h2>Vídeos completos</h2></div>
-        <p>Projetos na íntegra, do corte inicial à finalização.</p>
+        <div class="sh"><span class="n">04</span><h2 data-en="Full films">Vídeos completos</h2></div>
+        <p data-en="Complete projects, from first cut to final finish.">Projetos na íntegra, do corte inicial à finalização.</p>
       </div>
       <div id="fv-list"></div>
     </section>
@@ -455,46 +461,46 @@ p{margin:0}
     <!-- Plugin -->
     <section class="plugin" id="plugin">
       <div class="l rv">
-        <div class="sh"><span class="n">05</span><h2>Desenvolvimento de plugin</h2></div>
+        <div class="sh"><span class="n">05</span><h2 data-en="Plugin development">Desenvolvimento de plugin</h2></div>
         <h3 class="disp">Visu SFX<br>Studio</h3>
-        <p>Plugin para Adobe Premiere Pro, de minha autoria, publicado na loja aescripts + aeplugins em julho de 2026.</p>
-        <p>Construído por mim, com testes de compatibilidade em Mac (Intel e Apple Silicon) e Windows, e suporte direto aos usuários.</p>
-        <a class="btn" href="https://aescripts.com/sfx-studio" target="_blank" rel="noopener noreferrer">Ver na aescripts <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <p data-en="A plugin for Adobe Premiere Pro that I created, published on the aescripts + aeplugins store in July 2026.">Plugin para Adobe Premiere Pro, de minha autoria, publicado na loja aescripts + aeplugins em julho de 2026.</p>
+        <p data-en="Built by me, with compatibility testing on Mac (Intel and Apple Silicon) and Windows, and direct user support.">Construído por mim, com testes de compatibilidade em Mac (Intel e Apple Silicon) e Windows, e suporte direto aos usuários.</p>
+        <a class="btn" href="https://aescripts.com/sfx-studio" target="_blank" rel="noopener noreferrer"><span data-en="View on aescripts">Ver na aescripts</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
       <div class="r rv" style="--d:.15s">
         <div class="card">
           <span class="tape" aria-hidden="true"></span>
-          <span class="lab">Autor</span>
+          <span class="lab" data-en="Author">Autor</span>
           <p class="name disp">Daniel A M Gomes</p>
           <dl>
-            <div><dt>Loja</dt><dd>aescripts + aeplugins</dd></div>
-            <div><dt>Plataforma</dt><dd>Adobe Premiere Pro</dd></div>
-            <div><dt>Publicado</dt><dd>Julho de 2026</dd></div>
+            <div><dt data-en="Store">Loja</dt><dd>aescripts + aeplugins</dd></div>
+            <div><dt data-en="Platform">Plataforma</dt><dd>Adobe Premiere Pro</dd></div>
+            <div><dt data-en="Published">Publicado</dt><dd data-en="July 2026">Julho de 2026</dd></div>
           </dl>
         </div>
       </div>
     </section>
 
     <!-- Ferramentas -->
-    <div class="tools" aria-label="Ferramentas: DaVinci Resolve, Premiere Pro, After Effects, Mocha Pro. Inteligência artificial: Claude Code e Magnific.">
+    <div class="tools" aria-label="Ferramentas: DaVinci Resolve, Premiere Pro, After Effects, Mocha Pro. Inteligência artificial: Claude Code e Magnific." data-en-label="Tools: DaVinci Resolve, Premiere Pro, After Effects, Mocha Pro. Artificial intelligence: Claude Code and Magnific.">
       <div class="track disp" aria-hidden="true">
-        <span>DaVinci Resolve</span><span class="st">✶</span><span>Premiere Pro</span><span class="st">✶</span><span>After Effects</span><span class="st">✶</span><span>Mocha Pro</span><span class="st">✶</span><span class="tg">IA</span><span class="ai">Claude Code</span><span class="st">✶</span><span class="ai">Magnific</span><span class="st">✶</span>
-        <span>DaVinci Resolve</span><span class="st">✶</span><span>Premiere Pro</span><span class="st">✶</span><span>After Effects</span><span class="st">✶</span><span>Mocha Pro</span><span class="st">✶</span><span class="tg">IA</span><span class="ai">Claude Code</span><span class="st">✶</span><span class="ai">Magnific</span><span class="st">✶</span>
+        <span>DaVinci Resolve</span><span class="st">✶</span><span>Premiere Pro</span><span class="st">✶</span><span>After Effects</span><span class="st">✶</span><span>Mocha Pro</span><span class="st">✶</span><span class="tg" data-en="AI">IA</span><span class="ai">Claude Code</span><span class="st">✶</span><span class="ai">Magnific</span><span class="st">✶</span>
+        <span>DaVinci Resolve</span><span class="st">✶</span><span>Premiere Pro</span><span class="st">✶</span><span>After Effects</span><span class="st">✶</span><span>Mocha Pro</span><span class="st">✶</span><span class="tg" data-en="AI">IA</span><span class="ai">Claude Code</span><span class="st">✶</span><span class="ai">Magnific</span><span class="st">✶</span>
       </div>
     </div>
 
     <!-- Contato -->
     <section class="cta" id="contato">
       <div class="ttl rv">
-        <div class="sh"><span class="n">06</span><h2>Contato</h2></div>
-        <h2 class="disp" aria-label="Vamos editar o próximo projeto?">Vamos<br>editar o<br>próximo<span class="hand wr">projeto?</span></h2>
+        <div class="sh"><span class="n">06</span><h2 data-en="Contact">Contato</h2></div>
+        <h2 class="disp" aria-label="Vamos editar o próximo projeto?" data-en-label="Let's edit your next project." data-en="Let's<br>edit your<br>next<span class=&quot;hand wr&quot;>project.</span>">Vamos<br>editar o<br>próximo<span class="hand wr">projeto?</span></h2>
       </div>
       <div class="mid rv" style="--d:.1s">
-        <p>Projeto novo, ideia nova ou só uma conversa: me chama no WhatsApp.</p>
-        <a class="btn dark" href="https://wa.me/message/4WTESZSDVZDMB1" target="_blank" rel="noopener noreferrer">Iniciar projeto <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <p data-en="New project, new idea or just a chat: message me on WhatsApp.">Projeto novo, ideia nova ou só uma conversa: me chama no WhatsApp.</p>
+        <a class="btn dark" href="https://wa.me/message/4WTESZSDVZDMB1" target="_blank" rel="noopener noreferrer"><span data-en="Start a project">Iniciar projeto</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <div class="socials">
           <a href="https://www.instagram.com/danielamgomesssss?igsh=cG94YjZmZ2xlbDVi&amp;utm_source=qr" target="_blank" rel="noopener noreferrer">Instagram</a>
-          <a href="mailto:antunes.daniell@gmail.com">E-mail</a>
+          <a href="mailto:antunes.daniell@gmail.com" data-en="Email">E-mail</a>
         </div>
       </div>
       <div class="seal rv" style="--d:.2s">
@@ -502,7 +508,7 @@ p{margin:0}
           <circle class="disc" cx="50" cy="50" r="48"/>
           <g class="ring">
             <path id="c-cta" d="M50,50 m-37,0 a37,37 0 1,1 74,0 a37,37 0 1,1 -74,0" fill="none"/>
-            <text><textPath href="#c-cta" textLength="230" lengthAdjust="spacing">DANIEL GOMES · PÓS-PRODUÇÃO · DANIEL GOMES · </textPath></text>
+            <text><textPath href="#c-cta" textLength="230" lengthAdjust="spacing" data-en="DANIEL GOMES · POST-PRODUCTION · DANIEL GOMES · ">DANIEL GOMES · PÓS-PRODUÇÃO · DANIEL GOMES · </textPath></text>
           </g>
           <path class="ico" d="M50 42v16M42 50h16"/>
         </svg>
@@ -512,11 +518,11 @@ p{margin:0}
 
   <footer class="ftr">
     <span>Daniel Gomes<b style="color:var(--red)">.</b></span>
-    <span class="grow">© 2026 · Pós-produção de alto impacto</span>
+    <span class="grow" data-en="© 2026 · High-impact post-production">© 2026 · Pós-produção de alto impacto</span>
     <a href="https://www.instagram.com/danielamgomesssss?igsh=cG94YjZmZ2xlbDVi&amp;utm_source=qr" target="_blank" rel="noopener noreferrer">Instagram</a>
-    <a href="mailto:antunes.daniell@gmail.com">E-mail</a>
+    <a href="mailto:antunes.daniell@gmail.com" data-en="Email">E-mail</a>
     <a href="https://wa.me/message/4WTESZSDVZDMB1" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-    <a href="#topo">Topo ↑</a>
+    <a href="#topo" data-en="Top ↑">Topo ↑</a>
   </footer>
 </div>
 
@@ -531,31 +537,50 @@ p{margin:0}
   // link (opcional): { url: '...', text: 'texto do link' } aparece abaixo da descrição.
   // Para adicionar o próximo vídeo: copie um bloco { ... }, cole depois do último
   // (com vírgula entre eles) e troque id, title e desc.
+  // en (opcional): versão em inglês { title, desc, link } usada quando o site está em EN.
   // ==========================================================
   var fullVideos = [
     {
       id: '1238088923', hash: '',
       title: 'Campanha Azeite Gallo — Te encontro na cozinha',
       desc: 'Montagem, sound design e colorização da série Gallo na Cozinha no DaVinci Resolve. Mais de 10 entregas, com projeto de edição em multicam de 3 câmeras e saídas multiformato para Instagram, TikTok e YouTube.',
-      link: { url: 'https://www.youtube.com/c/gallobrasil', text: 'Mais filmes do projeto no YouTube da Gallo' }
-    },
-    {
-      id: '1238097480', hash: '',
-      title: 'Campanha Círculos — Meio&Mensagem',
-      desc: 'Diretor de montagem, pós-produção, motion e color grading. Produzi toda a direção de arte a partir do KV fornecido pelo cliente, incluindo pesquisa de imagens de banco, sonorização completa e SFX.',
-      link: null
+      link: { url: 'https://www.youtube.com/c/gallobrasil', text: 'Mais filmes do projeto no YouTube da Gallo' },
+      en: {
+        title: 'Azeite Gallo Campaign — Te encontro na cozinha',
+        desc: 'Editing, sound design and color grading of the Gallo na Cozinha series in DaVinci Resolve. 10+ deliverables, a 3-camera multicam edit and multi-format outputs for Instagram, TikTok and YouTube.',
+        link: 'More films from the project on Gallo\'s YouTube'
+      }
     },
     {
       id: '1238498074', hash: '',
       title: 'Pocket Exhibition by Galeria Viva',
       desc: 'Filme para apresentar novo aplicativo galeria viva, app de museus digitais, nesse trabalho fiz a montagem, sound designer e motion graphics, video produzido para público internacional.',
-      link: null
+      link: null,
+      en: {
+        title: 'Pocket Exhibition by Galeria Viva',
+        desc: 'Film introducing Galeria Viva, a new digital museum app. On this project I handled the editing, sound design and motion graphics. Produced for an international audience.'
+      }
+    },
+    {
+      id: '1238097480', hash: '',
+      title: 'Campanha Círculos — Meio&Mensagem',
+      desc: 'Diretor de montagem, pós-produção, motion e color grading. Produzi toda a direção de arte a partir do KV fornecido pelo cliente, incluindo pesquisa de imagens de banco, sonorização completa e SFX.',
+      link: null,
+      en: {
+        title: 'Círculos Campaign — Meio&Mensagem',
+        desc: 'Editing director, post-production, motion and color grading. I created the full art direction from the client\'s key visual, including stock footage research, complete sound design and SFX.'
+      }
     },
     {
       id: '1239934439', hash: '',
       title: 'Rexona Quebrando Barreiras',
       desc: 'Série de filmes para Rexona com Fábio Porchat, Montagem, desenho de som e finalização, O segundo episódio, em parceria com a love.fútbol vai contar a história do Daniel Souza, campeão mundial pela Seleção Brasileira de Futebol de Areia.',
-      link: { url: 'https://www.youtube.com/playlist?list=PLEe5JubhI8C87C1clyyYS8pGyOQsd1ujL', text: 'Mais episódios no canal Rexona' }
+      link: { url: 'https://www.youtube.com/playlist?list=PLEe5JubhI8C87C1clyyYS8pGyOQsd1ujL', text: 'Mais episódios no canal Rexona' },
+      en: {
+        title: 'Rexona Quebrando Barreiras',
+        desc: 'Film series for Rexona with Fábio Porchat: editing, sound design and finishing. The second episode, in partnership with love.fútbol, tells the story of Daniel Souza, world champion with the Brazilian national beach soccer team.',
+        link: 'More episodes on the Rexona channel'
+      }
     }
   ];
 
@@ -585,18 +610,19 @@ p{margin:0}
 
   // ---------- Lista de vídeos completos ----------
   var list = document.getElementById('fv-list');
+  function enAttr(t) { return t ? ' data-en="' + esc(esc(t)) + '"' : ''; }
   fullVideos.forEach(function (v, i) {
-    var num = String(i + 1).padStart(2, '0');
+    var num = String(i + 1).padStart(2, '0'), en = v.en || {};
     var el = document.createElement('article');
     el.className = 'fv rv' + (i % 2 ? ' alt' : '');
     el.innerHTML =
-      '<div class="media"><div class="vf" data-vimeo="' + esc(v.id) + '" data-hash="' + esc(v.hash || '') + '" data-title="' + esc(v.title) + '"></div></div>' +
+      '<div class="media"><div class="vf" data-vimeo="' + esc(v.id) + '" data-hash="' + esc(v.hash || '') + '" data-title="' + esc(v.title) + '"' + (en.title ? ' data-title-en="' + esc(en.title) + '"' : '') + '></div></div>' +
       '<div class="txt">' +
-        '<span class="no">Nº ' + num + '</span>' +
-        '<h3 class="disp">' + esc(v.title) + '</h3>' +
-        '<p>' + esc(v.desc) + '</p>' +
+        '<span class="no" data-en="No. ' + num + '">Nº ' + num + '</span>' +
+        '<h3 class="disp"' + enAttr(en.title) + '>' + esc(v.title) + '</h3>' +
+        '<p' + enAttr(en.desc) + '>' + esc(v.desc) + '</p>' +
         (v.link && /^https:\/\//.test(v.link.url)
-          ? '<a class="lnk" href="' + esc(v.link.url) + '" target="_blank" rel="noopener noreferrer">' + esc(v.link.text) + ARROW + '</a>'
+          ? '<a class="lnk" href="' + esc(v.link.url) + '" target="_blank" rel="noopener noreferrer"><span' + enAttr(en.link) + '>' + esc(v.link.text) + '</span>' + ARROW + '</a>'
           : '') +
       '</div>';
     list.appendChild(el);
@@ -689,11 +715,52 @@ p{margin:0}
   function setMenu(open) {
     mnav.classList.toggle('open', open);
     btn.setAttribute('aria-expanded', String(open));
-    btn.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+    btn.setAttribute('aria-label', LANG === 'en' ? (open ? 'Close menu' : 'Open menu') : (open ? 'Fechar menu' : 'Abrir menu'));
   }
   btn.addEventListener('click', function () { setMenu(!mnav.classList.contains('open')); });
   Array.prototype.forEach.call(mnav.querySelectorAll('a'), function (a) { a.addEventListener('click', function () { setMenu(false); }); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
+
+  // ---------- Idioma (PT / EN) ----------
+  // Os textos em inglês ficam no atributo data-en de cada elemento.
+  // Link direto para a versão em inglês: dgpos.com.br/?lang=en
+  var META = {
+    pt: { title: document.title, desc: (document.querySelector('meta[name="description"]') || {}).content || '' },
+    en: { title: 'Daniel Gomes | Post-Production & Finishing',
+          desc: 'Daniel Gomes, editor and finisher with 20 years in post-production: rhythmic editing, color grading, motion and VFX for agencies and production companies.' }
+  };
+  var LANG = 'pt';
+  function swapAttr(el, attr, enKey, en) {
+    var ptKey = 'pt' + enKey;
+    if (!(ptKey in el.dataset)) el.dataset[ptKey] = el.getAttribute(attr) || '';
+    el.setAttribute(attr, en ? el.dataset['en' + enKey] : el.dataset[ptKey]);
+  }
+  function applyLang(lang) {
+    LANG = lang === 'en' ? 'en' : 'pt';
+    var en = LANG === 'en';
+    document.documentElement.lang = en ? 'en' : 'pt-BR';
+    Array.prototype.forEach.call(document.querySelectorAll('[data-en]'), function (el) {
+      if (!('pt' in el.dataset)) el.dataset.pt = el.innerHTML;
+      el.innerHTML = en ? el.dataset.en : el.dataset.pt;
+    });
+    Array.prototype.forEach.call(document.querySelectorAll('[data-en-label]'), function (el) { swapAttr(el, 'aria-label', 'Label', en); });
+    Array.prototype.forEach.call(document.querySelectorAll('[data-en-alt]'), function (el) { swapAttr(el, 'alt', 'Alt', en); });
+    Array.prototype.forEach.call(document.querySelectorAll('.vf[data-vimeo]:not(.playing)'), function (el) {
+      el.setAttribute('aria-label', (en ? 'Play: ' : 'Reproduzir: ') + (en && el.dataset.titleEn ? el.dataset.titleEn : el.dataset.title));
+    });
+    document.title = META[LANG].title;
+    var md = document.querySelector('meta[name="description"]'); if (md) md.content = META[LANG].desc;
+    Array.prototype.forEach.call(document.querySelectorAll('.lang button'), function (b) { b.setAttribute('aria-pressed', String(b.dataset.lang === LANG)); });
+    btn.setAttribute('aria-label', en ? 'Open menu' : 'Abrir menu');
+    try { localStorage.setItem('dg-lang', LANG); } catch (e) {}
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('.lang button'), function (b) {
+    b.addEventListener('click', function () { if (b.dataset.lang !== LANG) applyLang(b.dataset.lang); });
+  });
+  var qLang = (location.search.match(/[?&]lang=(pt|en)\b/i) || [])[1];
+  var saved = null; try { saved = localStorage.getItem('dg-lang'); } catch (e) {}
+  var startLang = (qLang && qLang.toLowerCase()) || saved || (/^pt/i.test(navigator.language || 'pt') ? 'pt' : 'en');
+  if (startLang === 'en') applyLang('en');
 })();
 </script>
 </body>
