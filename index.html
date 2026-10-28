@@ -294,6 +294,19 @@ p{margin:0}
   .ftr>*:first-child{border-top:0;flex-basis:100%}
 }
 
+
+/* ---------- Microinterações (só mouse, sem "reduzir movimento") ---------- */
+@media (hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){
+  .note:hover,.card:hover,.photo figure:hover{animation:sway 2.4s cubic-bezier(.45,.05,.35,1)}
+  .vf{will-change:transform}
+}
+@keyframes sway{
+  0%{transform:none}
+  30%{transform:rotate(-1deg) translateY(-1.5px)}
+  65%{transform:rotate(.5deg) translateY(-.5px)}
+  100%{transform:none}
+}
+
 /* ---------- Revelar ao rolar ---------- */
 .js .rv{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:var(--d,0s)}
 .js .rv.in{opacity:1;transform:none}
@@ -761,6 +774,82 @@ p{margin:0}
   var saved = null; try { saved = localStorage.getItem('dg-lang'); } catch (e) {}
   var startLang = (qLang && qLang.toLowerCase()) || saved || (/^pt/i.test(navigator.language || 'pt') ? 'pt' : 'en');
   if (startLang === 'en') applyLang('en');
+
+  // ---------- Magnetismo e microinterações (só desktop com mouse) ----------
+  // Botões e o play são puxados de leve na direção do mouse e voltam devagar, sem quique (efeito "no óleo");
+  // as miniaturas inclinam em 3D; os selos acompanham o mouse quando ele chega perto.
+  if (!reduce && window.matchMedia && matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    var springs = [], running = false;
+    function spring(apply, k, damp) {
+      var s = { x: 0, y: 0, vx: 0, vy: 0, tx: 0, ty: 0, k: k, d: damp, apply: apply, live: false };
+      springs.push(s); return s;
+    }
+    function kick(s) { s.live = true; if (!running) { running = true; requestAnimationFrame(tick); } }
+    function tick() {
+      var any = false;
+      for (var i = 0; i < springs.length; i++) {
+        var s = springs[i];
+        if (!s.live) continue;
+        s.vx = (s.vx + (s.tx - s.x) * s.k) * s.d;
+        s.vy = (s.vy + (s.ty - s.y) * s.k) * s.d;
+        s.x += s.vx; s.y += s.vy;
+        if (Math.abs(s.tx - s.x) < .02 && Math.abs(s.ty - s.y) < .02 && Math.abs(s.vx) < .02 && Math.abs(s.vy) < .02) {
+          s.x = s.tx; s.y = s.ty; s.vx = s.vy = 0; s.live = false;
+        } else any = true;
+        s.apply(s.x, s.y);
+      }
+      running = any;
+      if (any) requestAnimationFrame(tick);
+    }
+    function clamp(v, m) { return Math.max(-m, Math.min(m, v)); }
+    function setTarget(s, x, y) { if (x !== s.tx || y !== s.ty) { s.tx = x; s.ty = y; kick(s); } }
+
+    // 1) Ímã: o elemento é puxado para o mouse dentro da área "zone"
+    function magnet(el, zone, strength, max) {
+      if (!el) return;
+      var s = spring(function (x, y) { el.style.translate = (x || y) ? x.toFixed(2) + 'px ' + y.toFixed(2) + 'px' : ''; }, .025, .6);
+      zone.addEventListener('pointermove', function (e) {
+        var r = el.getBoundingClientRect();
+        var cx = r.left - s.x + r.width / 2, cy = r.top - s.y + r.height / 2;
+        setTarget(s, clamp((e.clientX - cx) * strength, max), clamp((e.clientY - cy) * strength, max));
+      });
+      zone.addEventListener('pointerleave', function () { setTarget(s, 0, 0); });
+    }
+    Array.prototype.forEach.call(document.querySelectorAll('.btn'), function (el) { magnet(el, el, .12, 4); });
+    Array.prototype.forEach.call(document.querySelectorAll('.lnk, .more'), function (el) { magnet(el, el, .08, 2.5); });
+    var langBox = document.querySelector('.lang'); magnet(langBox, langBox, .06, 1.5);
+
+    // 2) Miniaturas: inclinação 3D suave + play magnético
+    Array.prototype.forEach.call(document.querySelectorAll('.vf[data-vimeo]'), function (vf) {
+      var big = vf.classList.contains('big'), deg = big ? 1.2 : 2;
+      var img = vf.querySelector('img'), play = vf.querySelector('.vf-play');
+      var t = spring(function (x, y) {
+        vf.style.transform = (x || y) ? 'perspective(1000px) rotateX(' + (-y).toFixed(2) + 'deg) rotateY(' + x.toFixed(2) + 'deg)' : '';
+        if (img) img.style.translate = (x || y) ? (-x * 1.6).toFixed(2) + 'px ' + (-y * 1.6).toFixed(2) + 'px' : '';
+      }, .02, .62);
+      vf.addEventListener('pointermove', function (e) {
+        if (vf.classList.contains('playing')) return;
+        var r = vf.getBoundingClientRect();
+        setTarget(t, ((e.clientX - r.left) / r.width - .5) * deg, ((e.clientY - r.top) / r.height - .5) * deg);
+      });
+      vf.addEventListener('pointerleave', function () { setTarget(t, 0, 0); });
+      vf.addEventListener('click', function () { t.tx = t.ty = t.x = t.y = t.vx = t.vy = 0; t.live = false; vf.style.transform = ''; });
+      magnet(play, vf, big ? .04 : .05, big ? 10 : 6);
+    });
+
+    // 3) Selos: acompanham o mouse quando ele chega perto
+    Array.prototype.forEach.call(document.querySelectorAll('.stamp'), function (el) {
+      var s = spring(function (x, y) { el.style.translate = (x || y) ? x.toFixed(2) + 'px ' + y.toFixed(2) + 'px' : ''; }, .018, .6);
+      var radius = 220;
+      document.addEventListener('pointermove', function (e) {
+        var r = el.getBoundingClientRect();
+        var dx = e.clientX - (r.left - s.x + r.width / 2), dy = e.clientY - (r.top - s.y + r.height / 2);
+        var dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < radius) { var f = (1 - dist / radius) * .1; setTarget(s, dx * f, dy * f); }
+        else setTarget(s, 0, 0);
+      }, { passive: true });
+    });
+  }
 })();
 </script>
 </body>
