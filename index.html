@@ -249,31 +249,6 @@ p{margin:0}
   .plugin .l{border-right:0;border-bottom:1px solid rgba(232,228,219,.28)}
 }
 
-
-/* ---------- Sites & Landing Pages ---------- */
-.sites{padding:clamp(26px,3vw,44px) var(--pad) clamp(34px,4vw,60px);border-bottom:var(--rule)}
-.sites-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px 40px;flex-wrap:wrap;margin-bottom:28px}
-.sites-top .sh{margin:0}
-.sites-top p{max-width:46ch;font-size:15px}
-.sites-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(22px,3vw,44px)}
-.site-frame{display:block;border:var(--rule);background:var(--note);overflow:hidden;transition:transform .9s var(--ease)}
-.site-frame:hover{transform:translateY(-3px)}
-.site-frame .bar{display:flex;align-items:center;gap:6px;height:32px;padding:0 12px;border-bottom:var(--rule)}
-.site-frame .bar i{width:9px;height:9px;border-radius:50%;border:1px solid var(--ink)}
-.site-frame .bar i:first-child{background:var(--red);border-color:var(--red)}
-.site-frame .bar .url{margin-left:10px;font-size:11px;font-weight:600;letter-spacing:.06em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.site-frame .view{position:relative;aspect-ratio:16/10;background:var(--ink) var(--tex);display:grid;place-items:center;overflow:hidden}
-.site-frame .view .ph{color:var(--paper);font-size:clamp(40px,5vw,84px);padding:0 .3em;text-align:center}
-.site-frame .view .ph b{color:var(--red);font-weight:900}
-.site-frame .view img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;opacity:0;transition:opacity .6s,transform 1.4s var(--ease)}
-.site-frame .view img.loaded{opacity:1}
-.site-frame:hover .view img{transform:scale(1.03)}
-.site .meta{display:flex;justify-content:space-between;margin-top:14px}
-.site h3{margin:4px 0 0;font-size:clamp(30px,3vw,44px);line-height:.9}
-.site p{margin-top:10px;font-size:15px;max-width:48ch}
-@media (max-width:820px){.sites-grid{grid-template-columns:1fr}}
-@media (max-width:1180px){.hdr-desc{display:none}}
-
 /* ---------- Ferramentas ---------- */
 .tools{overflow:hidden;border-bottom:var(--rule);padding:16px 0}
 .track{display:flex;width:max-content;animation:mq 34s linear infinite}
@@ -362,7 +337,6 @@ p{margin:0}
         <li><a href="#trabalhos" data-en="Work">Trabalhos</a></li>
         <li><a href="#videos" data-en="Films">Vídeos</a></li>
         <li><a href="#plugin">Plugin</a></li>
-        <li><a href="#sites">Sites</a></li>
         <li><a href="#contato" data-en="Contact">Contato</a></li>
       </ul>
     </nav>
@@ -376,7 +350,6 @@ p{margin:0}
       <a href="#trabalhos" data-en="Work">Trabalhos</a>
       <a href="#videos" data-en="Films">Vídeos</a>
       <a href="#plugin">Plugin</a>
-      <a href="#sites">Sites</a>
       <a href="#contato" data-en="Contact">Contato</a>
     </nav>
   </header>
@@ -391,7 +364,7 @@ p{margin:0}
         <div class="hero-l rv" style="--d:.5s">
           <p class="tag disp" data-en="Editor &amp;amp;<br>finisher.<br>20 years in post.">Editor &amp;<br>finalizador.<br>20 anos de pós.</p>
           <span class="dash"></span>
-          <p class="lab" data-en="Rhythmic editing<br>Color grading<br>Finishing">Montagem rítmica<br>Color grading<br>Finalização</p>
+          <p class="lab" data-en="From raw footage<br>to final master.">Do material bruto<br>ao master final.</p>
           <svg class="stamp red" viewBox="0 0 100 100" aria-hidden="true">
             <circle class="disc" cx="50" cy="50" r="49"/>
             <g class="ring">
@@ -410,7 +383,7 @@ p{margin:0}
         <div class="hero-r rv" style="--d:.65s">
           <div class="note"><span class="tape" aria-hidden="true"></span><span class="hand" data-en="The cut<br>lives here">O corte<br>mora aqui</span></div>
           <div class="bottom">
-            <p class="lab" data-en="Edit · Color · Motion">Montagem · Cor · Motion</p>
+            <p class="lab" data-en="So does the deadline.">O prazo também.</p>
           </div>
         </div>
       </div>
@@ -429,7 +402,7 @@ p{margin:0}
     <section class="about" id="sobre">
       <div class="txt rv">
         <div class="sh"><span class="n">01</span><h2 data-en="About">Sobre</h2></div>
-        <p data-en="I'm Daniel Gomes, an editor and finisher with over 20 years in audiovisual post-production. I edit, color and finish brand films, campaigns and content for agencies and production companies, from raw footage to final delivery in every format.">Sou Daniel Gomes, editor e finalizador com mais de 20 anos de pós-produção audiovisual. Monto, dou cor e finalizo filmes de marca, campanhas e conteúdo para agências e produtoras, do material bruto à entrega final em todos os formatos.</p>
+        <p data-en="I'm Daniel Gomes, a senior editor and finisher with over 20 years in audiovisual post-production. I take on campaigns, corporate films and commercials for agencies and production companies end to end, from raw footage to final master in every format, with organized delivery and no supervision needed.">Sou Daniel Gomes, editor e finalizador sênior com mais de 20 anos de pós-produção audiovisual. Assumo campanhas, institucionais e filmes publicitários de agências e produtoras de ponta a ponta, do material bruto ao master final em todos os formatos, com organização técnica e sem demandar supervisão.</p>
         <span class="dash"></span>
         <p class="lab" data-en="Cut, color and finish.">Corte, cor e acabamento.</p>
       </div>
@@ -443,15 +416,15 @@ p{margin:0}
       <div class="svcs rv" style="--d:.2s">
         <div class="sh"><span class="n">02</span><h2 data-en="Services">Serviços</h2></div>
         <ul class="svc">
-          <li data-en="Narrative editing">Montagem narrativa</li>
-          <li>Color grading</li>
+          <li data-en="Narrative &amp;amp; rhythmic editing">Montagem narrativa e rítmica</li>
+          <li>Color grading · DaVinci Resolve</li>
           <li>Motion graphics</li>
-          <li data-en="VFX &amp;amp; compositing">VFX e composição</li>
+          <li data-en="VFX, tracking &amp;amp; compositing">VFX, tracking e composição</li>
           <li>Sound design</li>
           <li data-en="Multi-format finishing">Finalização multiformato</li>
         </ul>
         <span class="dash"></span>
-        <p class="lab" data-en="From raw footage to final delivery.">Do bruto à entrega final.</p>
+        <p class="lab" data-en="Ready for TV, digital and social.">Pronto para TV, digital e redes.</p>
       </div>
     </section>
 
@@ -521,15 +494,6 @@ p{margin:0}
       </div>
     </section>
 
-    <!-- Sites & Landing Pages (edite o array "sites" no fim do arquivo) -->
-    <section class="sites" id="sites">
-      <div class="sites-top rv">
-        <div class="sh"><span class="n">06</span><h2 data-en="Websites &amp;amp; Landing Pages">Sites &amp; Landing Pages</h2></div>
-        <p data-en="Beyond post-production, I build websites and landing pages for brands and studios.">Além da pós-produção, desenvolvo sites e landing pages para marcas e estúdios.</p>
-      </div>
-      <div class="sites-grid" id="sites-list"></div>
-    </section>
-
     <!-- Ferramentas -->
     <div class="tools" aria-label="Ferramentas: DaVinci Resolve, Premiere Pro, After Effects, Mocha Pro. Inteligência artificial: Claude Code e Magnific." data-en-label="Tools: DaVinci Resolve, Premiere Pro, After Effects, Mocha Pro. Artificial intelligence: Claude Code and Magnific.">
       <div class="track disp" aria-hidden="true">
@@ -541,11 +505,11 @@ p{margin:0}
     <!-- Contato -->
     <section class="cta" id="contato">
       <div class="ttl rv">
-        <div class="sh"><span class="n">07</span><h2 data-en="Contact">Contato</h2></div>
+        <div class="sh"><span class="n">06</span><h2 data-en="Contact">Contato</h2></div>
         <h2 class="disp" aria-label="Vamos editar o próximo projeto?" data-en-label="Let's edit your next project." data-en="Let's<br>edit your<br>next<span class=&quot;hand wr&quot;>project.</span>">Vamos<br>editar o<br>próximo<span class="hand wr">projeto?</span></h2>
       </div>
       <div class="mid rv" style="--d:.1s">
-        <p data-en="New project, new idea or just a chat: message me on WhatsApp.">Projeto novo, ideia nova ou só uma conversa: me chama no WhatsApp.</p>
+        <p data-en="In-house post backed up? A campaign on a tight deadline or a project that needs a finisher you can trust: let's talk.">A pós interna atolou? Campanha com prazo apertado ou projeto que pede um finalizador de confiança: vamos conversar.</p>
         <a class="btn dark" href="https://wa.me/message/4WTESZSDVZDMB1" target="_blank" rel="noopener noreferrer"><span data-en="Start a project">Iniciar projeto</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <div class="socials">
           <a href="https://www.instagram.com/danielamgomesssss?igsh=cG94YjZmZ2xlbDVi&amp;utm_source=qr" target="_blank" rel="noopener noreferrer">Instagram</a>
@@ -633,35 +597,6 @@ p{margin:0}
     }
   ];
 
-
-  // ==========================================================
-  // SITES & LANDING PAGES — EDITE AQUI
-  // url:  endereço do site
-  // name: nome que aparece no card (parte em vermelho entre [colchetes])
-  // tag:  rótulo curto (tipo de projeto)
-  // desc: descrição
-  // img:  (opcional) imagem de capa — um print do site, ex.: 'sites/visutools.jpg'
-  // en:   versão em inglês { tag, desc }
-  // ==========================================================
-  var sites = [
-    {
-      url: 'https://www.visutools.com',
-      name: 'Visu[Tools]',
-      tag: 'Marca de plugins',
-      desc: 'Site da VisuTools, a marca dos meus plugins para Adobe Premiere Pro, como o Visu SFX Studio.',
-      img: '',
-      en: { tag: 'Plugin brand', desc: 'Website for VisuTools, the brand behind my Adobe Premiere Pro plugins, including Visu SFX Studio.' }
-    },
-    {
-      url: 'https://antunesdaniell.wixsite.com/website-2',
-      name: 'dropframe[_]',
-      tag: 'Estúdio de pós · São Paulo',
-      desc: 'Landing page da dropframe_, estúdio de pós-produção em São Paulo do qual sou sócio: reel, equipe, estrutura e contato.',
-      img: 'https://static.wixstatic.com/media/6f4d1f_be64e389998d424188a66f624f530dc4~mv2.jpg/v1/fill/w_980,h_662,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/6f4d1f_be64e389998d424188a66f624f530dc4~mv2.jpg',
-      en: { tag: 'Post studio · São Paulo', desc: 'Landing page for dropframe_, the São Paulo post-production studio I co-own: reel, team, facilities and contact.' }
-    }
-  ];
-
   var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
   var hasIO = 'IntersectionObserver' in window;
   var ARROW = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
@@ -704,37 +639,6 @@ p{margin:0}
           : '') +
       '</div>';
     list.appendChild(el);
-  });
-
-
-  // ---------- Sites & Landing Pages ----------
-  var EXT = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>';
-  var sitesList = document.getElementById('sites-list');
-  sites.forEach(function (st, i) {
-    var en = st.en || {}, num = String(i + 1).padStart(2, '0');
-    var host = st.url.replace(/^https?:\/\//, '').replace(/\/$/, '');
-    var plain = st.name.replace(/[\[\]]/g, '');
-    var styled = esc(st.name).replace(/\[(.*?)\]/g, '<b>$1</b>');
-    var el = document.createElement('article');
-    el.className = 'site rv';
-    if (i % 2) el.style.setProperty('--d', '.12s');
-    el.innerHTML =
-      '<a class="site-frame" href="' + esc(st.url) + '" target="_blank" rel="noopener noreferrer" aria-label="Abrir o site ' + esc(plain) + '" data-en-label="Open the ' + esc(plain) + ' website">' +
-        '<span class="bar" aria-hidden="true"><i></i><i></i><i></i><span class="url">' + esc(host) + '</span></span>' +
-        '<span class="view"><span class="ph disp" aria-hidden="true">' + styled + '</span>' +
-          (st.img ? '<img alt="" loading="lazy" decoding="async" src="' + esc(st.img) + '">' : '') +
-        '</span>' +
-      '</a>' +
-      '<div class="meta"><span class="lab">' + num + '</span><span class="lab"' + enAttr(en.tag) + '>' + esc(st.tag) + '</span></div>' +
-      '<h3 class="disp">' + esc(plain) + '</h3>' +
-      '<p' + enAttr(en.desc) + '>' + esc(st.desc) + '</p>' +
-      '<a class="lnk" href="' + esc(st.url) + '" target="_blank" rel="noopener noreferrer"><span data-en="Visit website">Visitar site</span>' + EXT + '</a>';
-    var img = el.querySelector('img');
-    if (img) {
-      img.addEventListener('load', function () { img.classList.add('loaded'); });
-      img.addEventListener('error', function () { img.remove(); });
-    }
-    sitesList.appendChild(el);
   });
 
   // ---------- Miniaturas do Vimeo ----------
