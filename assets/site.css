@@ -360,3 +360,5 @@ h1.tag{margin:0}
   .others{grid-template-columns:1fr}
   .others a+a{border-left:0;border-top:var(--rule)}
 }
+
+@media (min-width:901px){.others.n4{grid-template-columns:repeat(4,minmax(0,1fr))}}
